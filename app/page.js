@@ -1,113 +1,149 @@
+'use client'
 import Image from "next/image";
-
+import image from './image/firstsideimage.png';
+import Navbar from "./components/navbar";
+import bgblur from "./image/blurbg.png";
+import bgblur2 from "./image/blurbg2.png";
+import { roboto_mono } from "./font";
+import first3d from "./image/3dfirst.jpg";
+import second3d from "./image/gen3dimage.jpg";
+import third3d from "./image/3dvideo.jpg";
+import Link from "next/link";
+import computer from "./image/computer.png"
+import bgellipse from "./image/bgellipse.png"
+import yash from "./image/my-image.png"
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser"
+import { toast } from "react-toastify";
 export default function Home() {
+  // const clicktodownload = () => {
+  //   const link = document.createElement("a");
+  //   link.href = "/public/resume.pdf";
+  //   link.download = "resume.pdf";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // }
+  const [fill, setFill] = useState('Yash Jadhav');
+  const namemap = [
+    "Yash Jadhav",
+    "Front-End Developer",
+    "Back-End Developer",
+    "Programmer"
+  ]
+
+  const form = useRef();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+    let result = await emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, process.env.PUBLIC_KEY);
+    let finalresult = result.status;
+    if (finalresult === 200) {
+      toast.success("Your Question has been submitted ✅ 😊", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "dark",
+      })
+    }
+  }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+
+      <Image src={bgblur} alt="bgblur" className="backanimation1 absolute z-0 left-5" />
+      {/* <Image src={bgblur2} alt="bgblu2" className="backanimation absolute z-0 right-0 top-4" /> */}
+      <Image src={bgellipse} alt="bgblu3" className="backanimation3 z-0 " />
+      <main className="mainoutersection m-auto z-10 relative">
+        <div className="firstsection flex items-center justify-between" id="skills">
+          <div className="w-full px-2 flex flex-col items-center justify-center gap-5 text-slate-50 text-center" style={{ fontFamily: roboto_mono }}>
+            <div className="head_section font-bold" >Hi, I'm {fill}</div>
+            <div className="description_section font-light text-base">
+              a passionate Full Stack Web Developer skilled in HTML, CSS, JavaScript, React, Next.js, MongoDB, Tailwind CSS, and Bootstrap. I build fast, responsive, and user-friendly web applications from front-end design to back-end development.
+            </div>
+            <div className="description_section2 font-light text-lg">
+              I'm Yash Jadhav, a Full Stack Developer skilled in building responsive, modern web apps using React, Next.js, MongoDB, and Tailwind CSS.
+            </div>
+            <div className="button_group flex item-center justify-center gap-0">
+              <Link href={'#about'} className="button1 border border-slate-400 rounded-md cursor-pointer px-3 py-2 mx-2 border-none hover:shadow-sm">About Me</Link>
+              <a href="/resume.pdf" className="button2 border border-slate-400 rounded-md cursor-pointer px-3 py-2 mx-2 hover:text-slate-950 hover:bg-slate-50 hover:shadow-sm" download>Download Cv 🚀</a>
+            </div>
+          </div>
+          <Image
+            src={yash}
+            alt="image"
+            className="firstimg"
+          // height="350" width="420"
+          />
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        {/* project section */}
+        <div className="projectsection w-full flex flex-col
+         gap-6 my-10" id="project">
+          <div className="head_features text-center font-semibold text-xl text-slate-100" style={{ fontStyle: roboto_mono }}>My Projects</div>
+          <div className="main_features flex">
+            {/* <div className="feature w-2/6 rounded-md cursor-pointer" >
+              <Image src={first3d} alt="feature" className="imagefeatures h-80 rounded-md object-cover" />
+              <div className="image_description text-slate-50 p-2" style={{ fontStyle: roboto_mono }}>
+                <div className="title">Generate 3d Images</div>
+              </div>
+            </div> */}
+            <Link href={'https://aibuilderwith-authentication-vf21.vercel.app'} target="_blank" className="feature w-full rounded-md cursor-pointer" >
+              <Image src={second3d} alt="feature" className="imagefeatures h-80 rounded-md object-cover" />
+              <div className="image_description text-slate-50 p-2 " style={{ fontStyle: roboto_mono }}>
+                <div className="title">NovaNeuron Chatbot</div>
+              </div>
+            </Link>
+            <div className="feature w-full rounded-md cursor-pointer" >
+              <Image src={third3d} alt="feature" className="imagefeatures h-80 rounded-md object-cover" />
+              <div className="image_description text-slate-50 p-2" style={{ fontStyle: roboto_mono }}>
+                <div className="title">Generate 3d Videos</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        {/* easy to use /about  */}
+        <div className="main_easy mt-3" id="about">
+          <Image src={computer} alt="computer" width="353" height="540" className="aboutmeimage" />
+          <div className="easy_text" style={{ fontStyle: roboto_mono }}>
+            <div className="my-2 easy_title">About Me</div>
+            <div className="my-2 easy_description">
+              Hi, I'm Yash Jadhav — a Full Stack Developer who loves creating clean, fast, and responsive web apps. I work with React, Next.js, MongoDB, Tailwind CSS, and more. Always learning, always building!
+            </div>
+            <div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            </div>
+            <Link href={'#question'} className="my-2 easy_button px-5 py-2" >Ask me Any questions ?</Link>
+          </div>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        {/* footer */}
+        <div className="footer w-full py-7" style={{ fontStyle: roboto_mono }} id="contact">
+          <div className="follow_footer text-center text-slate-50 font-bold mt-5 text-xl">
+            Follow Us
+          </div>
+          <div className="social_platform flex items-center justify-center gap-5 mt-5">
+            <Link href={'https://x.com/AshleyJacksonOG'} target="_blank" className="social cursor-pointer text-slate-50 font-semibold text-sm hover:text-blue-800">Twitter</Link>
+            <Link href={'https://www.instagram.com/og_yashjadhav'} target="_blank" className="social cursor-pointer text-slate-50 font-semibold text-sm hover:text-blue-800">Instagram</Link>
+            <Link href={'https://www.youtube.com/@AshJackson-007/streams'} target="_blank" className="social cursor-pointer text-slate-50 font-semibold text-sm hover:text-blue-800">Youtube</Link>
+          </div>
+          <form ref={form} onSubmit={handlesubmit} className="contactme flex flex-col item-center justify-center gap-4 px-2 mt-3" style={{ fontFamily: roboto_mono }} id="question">
+            <input type="text" name="name" placeholder="username" className="input rounded-md text-slate-50 px-2 py-3" onChange={(e) => setName(e.target.value)} />
+            <input type="email" name="email" placeholder="abc@gmail.com" className="input rounded-md text-slate-50 px-2 py-3" onChange={(e) => setEmail(e.target.value)} />
+            <textarea cols={40} name="message" placeholder="questions ?" className="input rounded-md text-slate-50 px-2 py-3" onChange={(e) => setMessage(e.target.value)}></textarea>
+            <input type="submit" className="px-2 py-3 rounded-md cursor-pointer bg-purple-800 text-slate-50" value="Submit" />
+          </form>
+        </div>
+      </main>
+    </>
   );
 }
+

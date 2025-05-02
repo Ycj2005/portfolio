@@ -40,7 +40,7 @@ export default function Home() {
 
   const handlesubmit = async (e) => {
     e.preventDefault();
-    let result = await emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, process.env.PUBLIC_KEY);
+    let result = await emailjs.sendForm("service_bs693dj", "template_376wmod", form.current, "bvMPLDlPZuiG-Kb9M");
     let finalresult = result.status;
     if (finalresult === 200) {
       toast.success("Your Question has been submitted ✅ 😊", {

@@ -64,12 +64,12 @@ export default function Home() {
       <main className="mainoutersection m-auto z-10 relative">
         <div className="firstsection flex items-center justify-between" id="skills">
           <div className="w-full px-2 flex flex-col items-center justify-center gap-5 text-slate-50 text-center" style={{ fontFamily: roboto_mono }}>
-            <div className="head_section font-bold" >Hi, I'm {fill}</div>
+            <div className="head_section font-bold" >Hi, I&apos;m Yash Jadhav</div>
             <div className="description_section font-light text-base">
               a passionate Full Stack Web Developer skilled in HTML, CSS, JavaScript, React, Next.js, MongoDB, Tailwind CSS, and Bootstrap. I build fast, responsive, and user-friendly web applications from front-end design to back-end development.
             </div>
             <div className="description_section2 font-light text-lg">
-              I'm Yash Jadhav, a Full Stack Developer skilled in building responsive, modern web apps using React, Next.js, MongoDB, and Tailwind CSS.
+              I&apos;m Yash Jadhav, a Full Stack Developer skilled in building responsive, modern web apps using React, Next.js, MongoDB, and Tailwind CSS.
             </div>
             <div className="button_group flex item-center justify-center gap-0">
               <Link href={'#about'} className="button1 border border-slate-400 rounded-md cursor-pointer px-3 py-2 mx-2 border-none hover:shadow-sm">About Me</Link>
@@ -116,7 +116,7 @@ export default function Home() {
           <div className="easy_text" style={{ fontStyle: roboto_mono }}>
             <div className="my-2 easy_title">About Me</div>
             <div className="my-2 easy_description">
-              Hi, I'm Yash Jadhav — a Full Stack Developer who loves creating clean, fast, and responsive web apps. I work with React, Next.js, MongoDB, Tailwind CSS, and more. Always learning, always building!
+              Hi, I&apos;m Yash Jadhav — a Full Stack Developer who loves creating clean, fast, and responsive web apps. I work with React, Next.js, MongoDB, Tailwind CSS, and more. Always learning, always building!
             </div>
             <div>
 

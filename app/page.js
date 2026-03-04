@@ -274,7 +274,7 @@ export default function Home() {
               </label>
               <div className="flex items-center justify-evenly gap-4 px-4 py-2.5 rounded-md border border-white">
               {arr.map((el) => (
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex flex-col items-center gap-2" key={el}>
                   <input type="radio" id={el} name="rating" className="cursor-pointer" value={el} onChange={(e) => setRating(e.target.value)}/>
                   <label className="text-white font-semibold text-base">
                     {el}

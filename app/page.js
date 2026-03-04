@@ -38,8 +38,8 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  // const [rating, setRating] = useState(0);
-  // let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [rating, setRating] = useState(0);
+  let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const handlesubmit = async (e) => {
     e.preventDefault();
     let result = await emailjs.sendForm(
@@ -264,7 +264,7 @@ export default function Home() {
               value={message}
             ></textarea>
 
-            {/* <div>
+            <div>
               <label className="font-semibold text-xs text-white mb-2">
                 give me a rating about your front dev skill
               </label>
@@ -282,7 +282,7 @@ export default function Home() {
                 </div>
               ))}
               </div>
-            </div> */}
+            </div>
             <input
               type="submit"
               className="px-2 py-3 rounded-md cursor-pointer bg-purple-800 text-slate-50"

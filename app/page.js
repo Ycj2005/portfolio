@@ -264,32 +264,34 @@ export default function Home() {
               value={message}
             ></textarea>
 
-            // <div>
-            //   <label className="font-semibold text-xs text-white mb-2">
-            //     give me a rating about your front dev skill
-            //   </label>
-            //   <br />
-            //   <label className="font-semibold text-xs text-orange-500/70 mb-1">
-            //     (0 = bad, 5 = average, 9 = excellent)
-            //   </label>
-            //   <div className="flex items-center justify-evenly gap-4 px-4 py-2.5 rounded-md border border-white">
-            //     {arr.map((el) => (
-            //       <div className="flex flex-col items-center gap-2" key={el}>
-            //         <input
-            //           type="radio"
-            //           id={el}
-            //           name="rating"
-            //           value={el}
-            //           checked={rating === el}
-            //           onChange={(e) => setRating(Number(e.target.value))}
-            //         />
-            //         <label className="text-white font-semibold text-base">
-            //           {el}
-            //         </label>
-            //       </div>
-            //     ))}
-            //   </div>
-            // </div>
+          {/* Commented out rating section using proper JSX comments */}
+            {/* <div>
+               <label className="font-semibold text-xs text-white mb-2">
+                  give me a rating about your front dev skill
+               </label>
+               <br />
+               <label className="font-semibold text-xs text-orange-500/70 mb-1">
+                  (0 = bad, 5 = average, 9 = excellent)
+               </label>
+               <div className="flex items-center justify-evenly gap-4 px-4 py-2.5 rounded-md border border-white">
+                 {arr.map((el) => (
+                   <div className="flex flex-col items-center gap-2" key={el}>
+                     <input
+                       type="radio"
+                       id={el}
+                       name="rating"
+                       value={el}
+                       checked={rating === el}
+                       onChange={(e) => setRating(Number(e.target.value))}
+                     />
+                     <label className="text-white font-semibold text-base">
+                       {el}
+                     </label>
+                   </div>
+                 ))}
+               </div>
+            </div> 
+            */}
             <input
               type="submit"
               className="px-2 py-3 rounded-md cursor-pointer bg-purple-800 text-slate-50"
